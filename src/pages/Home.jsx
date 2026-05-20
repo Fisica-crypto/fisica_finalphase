@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
-import { calcularAlcance, calcularAltura, calcularTempo } from "../utils/mov";
+import { calcularAlcance, calcularAlcanceNoTempo, calcularAltura, calcularAlturaNoTempo, calcularTempo } from "../utils/mov";
 import Animation from "../components/Animation";
 
 export default function Simulador(){
@@ -30,18 +30,21 @@ export default function Simulador(){
         const v = Number(velocidade);
         const a = Number(angulo);
         const g = Number(gravidade);
+        let t = Number(tempo)
+
+        const tempoFoiDigitado = tempo !== '' && ! isNaN(Number(tempo));
         
+        if (!tempoFoiDigitado) {
+            t = calcularTempo(v, a, g)
+        }else{
+            t = Number(tempo)
+        }
         
-        /*if(isNaN(t) || t < 0) {
-            setErro('Digita certo ai mano');
-            return;
-            }*/
-           
-           if(isNaN(v) || isNaN(a) || isNaN(g)){
+        if(isNaN(v) || isNaN(a) || isNaN(g)){
             setErro("Digite apenas números válidos");
             return;
         }
-
+        
         if(a <= 0 || a >= 91){
             setErro("Ângulo deve estar entre 0 e 90");
             return;
@@ -52,10 +55,18 @@ export default function Simulador(){
             return;
         }
         
+        if ( t < 0) {
+            setErro("Tempo não pode ser negativo")
+            return;
+        }
+
         
-        const t = calcularTempo(v, a, g);
-        const al = calcularAlcance(v, a, g, t);
-        const h = calcularAltura(v, a, g, t);
+        const al = tempoFoiDigitado
+            ? calcularAlcanceNoTempo(v, a, t)
+            : calcularAlcance(v, a, g);
+        const h = tempoFoiDigitado
+            ? calcularAlturaNoTempo(v, a, g, t)
+            : calcularAltura(v, a, g);
 
         setTempo(t.toFixed(2));
         setAlcance(al.toFixed(2));
@@ -97,6 +108,16 @@ export default function Simulador(){
                         value={gravidade}
                         onChange={(e)=>setGravidade(e.target.value)}
                         className="insert"
+                    />
+                </div>
+
+                <div className="input">
+                    <p> Tempo (m/s)</p>
+                    <input 
+                        type="number"
+                        value={tempo}
+                        onChange={(e)=>setTempo(e.target.value)}
+                        className="insert" 
                     />
                 </div>
                 
