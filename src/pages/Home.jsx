@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
-import { calcularAlcance, calcularAltura, calcularTempo } from "../utils/mov";
+import { calcularAlcance, calcularAlcanceNoTempo, calcularAltura, calcularAlturaNoTempo, calcularTempo } from "../utils/mov";
 import Animation from "../components/Animation";
 
 export default function Simulador(){
     
     const [velocidade, setVelocidade] = useState("");
     const [angulo, setAngulo] = useState("");
-    const [gravidade, setGravidade] = useState(9.8);
+    const [gravidade, setGravidade] = useState(10);
     
     const [tempo, setTempo] = useState('');
+    const [tempoCalculado, setTempoCalculado] = useState(null);
     const [alcance, setAlcance] = useState(null);
     const [altura, setAltura] = useState(null);
     
@@ -31,17 +32,11 @@ export default function Simulador(){
         const a = Number(angulo);
         const g = Number(gravidade);
         
-        
-        /*if(isNaN(t) || t < 0) {
-            setErro('Digita certo ai mano');
-            return;
-            }*/
-           
-           if(isNaN(v) || isNaN(a) || isNaN(g)){
+        if (isNaN(v) || isNaN(a) || isNaN(g)) {
             setErro("Digite apenas números válidos");
             return;
-        }
-
+}
+        
         if(a <= 0 || a >= 91){
             setErro("Ângulo deve estar entre 0 e 90");
             return;
@@ -51,13 +46,34 @@ export default function Simulador(){
             setErro("Velocidade e gravidade devem ser maiores que 0");  
             return;
         }
-        
-        
-        const t = calcularTempo(v, a, g);
-        const al = calcularAlcance(v, a, g, t);
-        const h = calcularAltura(v, a, g, t);
 
-        setTempo(t.toFixed(2));
+        const tempoFoiDigitado = tempo !== '' && ! isNaN(Number(tempo));
+         let t = tempoFoiDigitado ? Number(tempo) : calcularTempo(v, a, g);
+        
+        if ( t < 0) {
+            setErro("Tempo não pode ser negativo")
+            return;
+        }
+
+        const tempoMaximo = calcularTempo(v, a, g);
+        if(tempoFoiDigitado && t > tempoMaximo){
+            setErro(`O projétil já caiu! Tempo máximo de voo: ${tempoMaximo.toFixed(2)}s`);
+            return;
+        }
+
+        
+        const al = tempoFoiDigitado
+            ? calcularAlcanceNoTempo(v, a, t)
+            : calcularAlcance(v, a, g);
+        const h = tempoFoiDigitado
+            ? calcularAlturaNoTempo(v, a, g, t)
+            : calcularAltura(v, a, g);
+
+        console.log("tempoFoiDigitado:", tempoFoiDigitado);
+        console.log("t:", t, "v:", v, "a:", a, "g:", g);
+        console.log("h calculado:", h);
+
+        setTempoCalculado(t.toFixed(2));
         setAlcance(al.toFixed(2));
         setAltura(h.toFixed(2));
 
@@ -99,6 +115,16 @@ export default function Simulador(){
                         className="insert"
                     />
                 </div>
+
+                <div className="input">
+                    <p> Tempo (s)</p>
+                    <input 
+                        type="number"
+                        value={tempo}
+                        onChange={(e)=>setTempo(e.target.value)}
+                        className="insert" 
+                    />
+                </div>
                 
                 <button onClick={calcular} className="btn-enviar">
                     Calcular
@@ -128,7 +154,7 @@ export default function Simulador(){
                         <p>📏Alcance: Infinito(∞)</p>
                         <p>📈Altura Máx: Infinito(∞)</p>
                     </div>
-                ) : tempo && (
+                ) : tempoCalculado && (
                     <div id="results-box">
                         <h2>Resultados</h2>
                         <p>⏱ Tempo: {tempo} s</p>

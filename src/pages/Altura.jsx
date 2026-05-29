@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CalAltura } from "../utils/mov";
+import {calcularAltura} from "../utils/mov";
 import "../styles/Altura.css";
 
 export default function Altura() {
