@@ -1,11 +1,15 @@
-import '../styles/Inicio.css'
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
+import '../styles/Inicio.css'
+
+import BarraLateral from '../components/Barralateral';
+
 function Inicio(){
     return (  
         <>
+        <BarraLateral/>
     <main>
         <section id = "apresentacao">{/* Aqui é os Boas Vindas para o usuário/Apresentação*/}
                 <h2>Bem-vindo ao lugar onde a curiosidade encontra a ciência.</h2>
