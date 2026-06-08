@@ -1,93 +1,46 @@
-const g = 9.8
+const GRAVIDADE_PADRAO = 10;
 
-export function grausParaRad(angulo){
-    return angulo * (Math.PI/180); //o JS não usa o Graus(angulos) normais, então tem que usar o radiano
+export function grausParaRad(angulo) {
+    return angulo * (Math.PI / 180);
 }
 
-export function calcularAlcance(velocidade, angulo){
-    const angRad = grausParaRad(angulo);  //usa o radiano calculado.
-    const t = (calcularTempo(velocidade, angulo)) / 2
-
-    return (2 * velocidade * Math.cos(angRad)) * t;
+// calcula o alcance máximo (fórmula direta, sem tempo)
+export function calcularAlcance(velocidade, angulo, gravidade) {
+    const ang = grausParaRad(angulo);
+    const g = parseFloat(gravidade) || GRAVIDADE_PADRAO; 
+    return (velocidade ** 2 * Math.sin(2 * ang)) / g;
 }
 
-export function calcularAltura(velocidade, angulo, gravidade, /*t */ ){
-        const v0 = parseFloat(velocidade);
-        const ang = grausParaRad(angulo);
-        const g = parseFloat(gravidade);
-        //const t = (calcularTempo(velocidade, angulo))
-        //const v0y = velocidade * Math.sin(ang)
-        var Erro = ''
-        
-        
-        if (isNaN(v0) || isNaN(ang) || isNaN(g)) {
-            Erro("Por favor, preencha todos os campos com valores válidos!");
-            return;
-        }
-
-        if (ang <= 0 || ang >= 90) {
-            Erro("O ângulo deve estar entre 0° e 90° (não inclusivo)");
-            return;
-        }
-
-        if (isNaN(v0) || isNaN(ang)) {
-            alert("digite valores validos!")
-            return;
-        }
-        
-       
-        if (ang <= 0 || ang >= 90) {
-            alert("Ângulo deve estar entre 0° e 90° (não inclusivo)");
-            return;
-        }
-        /*const h = v0y * t - (gravidade / 2) * (t ** 2);
-        return h;*/ return(v0 ** 2 * Math.sin(ang) ** 2) / (2 * g)
-       };
-
-export function calcularTempo(velocidade, angulo){
-
-    const rad = grausParaRad(angulo)
-
-    const tempo = (2 * velocidade * Math.sin(rad)) / g;
-
-    return tempo;
+// calcular a Altura Máxima (fórmula direta, sem tempo)
+export function calcularAltura(velocidade, angulo, gravidade) {
+    const ang = grausParaRad(angulo);
+    const g = parseFloat(gravidade) || GRAVIDADE_PADRAO; 
+    return (velocidade ** 2 * Math.sin(ang) ** 2) / (2 * g);
 }
 
-export function CalAlcance(velocidade, angulo, tempo){
-    const angRad = grausParaRad(angulo);  //usa o radiano calculado.
-    const t = tempo;
-
-    return (velocidade * Math.cos(angRad)) * t;
+// calcula o tempo total de voo
+export function calcularTempo(velocidade, angulo, gravidade) {
+    const ang = grausParaRad(angulo);
+    const g = parseFloat(gravidade) || GRAVIDADE_PADRAO; 
+    return (2 * velocidade * Math.sin(ang)) / g;
 }
-export function CalAltura(velocidade, angulo, gravidade, tempo){
-        const v0 = parseFloat(velocidade);
-        const ang = grausParaRad(angulo);
-        const g = parseFloat(gravidade);
-        const t = tempo
-        const v0y = velocidade * Math.sin(ang)
-        var Erro = ''
-        
-        
-        if (isNaN(v0) || isNaN(ang) || isNaN(g)) {
-            Erro("Por favor, preencha todos os campos com valores válidos!");
-            return;
-        }
 
-        if (ang <= 0 || ang >= 90) {
-            Erro("O ângulo deve estar entre 0° e 90° (não inclusivo)");
-            return;
-        }
+// calcula o alcance em um tempo específico
+export function calcularAlcanceNoTempo(velocidade, angulo, tempo) {
+    const ang = grausParaRad(angulo);
+    return velocidade * Math.cos(ang) * tempo;
+}
 
-        if (isNaN(v0) || isNaN(ang)) {
-            alert("digite valores validos!")
-            return;
-        }
-        
-       
-        if (ang <= 0 || ang >= 90) {
-            alert("Ângulo deve estar entre 0° e 90° (não inclusivo)");
-            return;
-        }
-        const h = v0y * t - (gravidade / 2) * (t ** 2);
-        return h; //(v0 ** 2 * Math.sin(ang) ** 2) / (2 * g)
-       };
+// calcula a altura em um tempo específico
+export function calcularAlturaNoTempo(velocidade, angulo, gravidade, tempo) {
+    const v0 = parseFloat(velocidade);
+    const ang = grausParaRad(angulo);
+    const g = parseFloat(gravidade) || GRAVIDADE_PADRAO;
+    const v0y = v0 * Math.sin(ang);
+    
+    const h = v0y * tempo - (g / 2) * (tempo ** 2);
+    return h; 
+}
+
+// REMOVIDO: calAlcance — era duplicata de calcularAlcanceNoTempo
+// REMOVIDO: calAltura  — era duplicata de calcularAlturaNoTempo
