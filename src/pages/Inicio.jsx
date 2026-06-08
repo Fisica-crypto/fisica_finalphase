@@ -2,14 +2,14 @@ import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from "react-katex";
 import "katex/dist/katex.min.css";
 
-import '../styles/Inicio.css'
-
-import BarraLateral from '../components/Barralateral';
+import '../styles/Inicio.css';
 
 function Inicio(){
     return (  
         <>
-        <BarraLateral/>
+
+
+        <div className='main'>
     <main>
         <section id = "apresentacao">{/* Aqui é os Boas Vindas para o usuário/Apresentação*/}
                 <h2>Bem-vindo ao lugar onde a curiosidade encontra a ciência.</h2>
@@ -109,13 +109,7 @@ function Inicio(){
              </section>
         </section>
     </main>
-
-   {/* Aqui ira ficar os créditos*/}
-    <footer>
-        <p>Desenvolvido por: grupo de estudantes</p>
-        <p>Instituição: IFMA - Instituto Federal de Ciências e Tecnologias do Maranhão</p>
-        <p>Ano: 2026</p>
-    </footer>
+        </div>
         </>
     );
 }

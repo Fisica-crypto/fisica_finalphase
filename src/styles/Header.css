@@ -1,25 +1,25 @@
 .header-container {
     width: 100vw;
-    padding: 25px 0 20px 0;
+    height: 20vw;
+    justify-content: center;
+    padding: 25px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
 }
 
 .header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-between;
 }
 
 /* ==================== CENTRO ==================== */
-.header-center {
-    display: flex;
+.header-center{
+    margin: auto;
     flex-direction: column;
+    display:flex;
     align-items: center;
+    justify-content: center;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -27,7 +27,9 @@
 
 .header-logo {
     max-height: 140px;
-    margin-bottom: 10px;
+    height: 120px;
+    width: 130px;
+    margin-bottom: 10px
 }
 
 .header-center h1 {
