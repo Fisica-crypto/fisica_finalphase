@@ -30,6 +30,12 @@
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+
+.main{
+    margin-left: 300px;
+    padding: 20px;
+}
+
 /* --- Reset e Base --- */
 * {
     margin: 0;
@@ -42,6 +48,7 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-light);
+    display: flexbox;
 }
 
 /* --- Header e Navegação --- */

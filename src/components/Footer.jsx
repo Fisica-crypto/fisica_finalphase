@@ -1,12 +1,16 @@
 import React from "react";
-import '../styles/Footer.css'
+
 import { FaEnvelope } from 'react-icons/fa';
 import { FaPhone } from "react-icons/fa";
+
+import '../styles/Footer.css'
 
 export default function Footer(){
     return(
         <>
         <div className="Footer">
+            <div className="Footer-content">
+                
             <div className="titulo_icons">
                 <h1>Projétil X</h1>
             </div>
@@ -48,6 +52,7 @@ export default function Footer(){
                     <li><FaEnvelope/> <a href="mailto:fisicaprojeto98@gmail.com"> Email: fisicaprojeto98@gmail.com </a></li>
                 </ul>
                 </div>
+            </div>
             </div>
         </div>
         </>

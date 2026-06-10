@@ -9,10 +9,13 @@ import Obliquo from "./pages/Exemplos";
 import Sobre from "./pages/Sobre";
 import Simulador from "./pages/Home";
 
+import BarraLateral from './components/Barralateral';
+
 export default function App() {
   return (
     <BrowserRouter>
       <Header />
+      <BarraLateral/>
 
       <Routes>
         <Route path="/" element={<Inicio />} />

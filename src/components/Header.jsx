@@ -17,20 +17,6 @@ export default function Header() {
                     />
                     <h1>Lançamento Oblíquo</h1>
                 </div>
-
-                {/* DIREITA - Links */}
-                <nav className="navbar-box">
-                    <ul className="navbar-links">
-                        <li><Link to="/">Inicio</Link></li>
-                        <li><Link to="/Simulador">Simulador</Link></li>
-                        <li><Link to="/Altura">Altura</Link></li>
-                        <li><Link to="/Alcance">Alcance</Link></li>
-                        <li><Link to="/Tempo">Tempo</Link></li>
-                        <li><Link to="/Exemplos">Como usar</Link></li>
-                        <li><Link to="/Sobre">Sobre</Link></li>
-                    </ul>
-                </nav>
-
             </div>
         </header>
     );

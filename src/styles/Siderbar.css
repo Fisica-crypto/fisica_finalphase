@@ -1,0 +1,99 @@
+.Body{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    background-color: #343434;
+
+    overflow-y: auto;
+
+    transition: transform 0.3s ease;
+
+    z-index: 1000;
+}
+
+/* Aberta */
+.aberta{
+    transform: translateX(0);
+}
+
+/* Fechada */
+.fechada{
+    transform: translateX(-100%);
+}
+
+.Bar-container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.Top{
+    padding: 20px;
+    border-bottom: 1px solid #555;
+}
+
+.Top img{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+
+    display: block;
+    margin: 0 auto;
+}
+
+.Top h3{
+    color: white;
+    margin-top: 15px;
+    text-align: center;
+}
+
+.Bottom{
+    flex: 1;
+    padding: 20px;
+}
+
+.navegacao{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    list-style: none;
+    padding: 0;
+}
+
+.navegacao a{
+    color: white;
+    text-decoration: none;
+
+    padding: 10px;
+    border-radius: 8px;
+
+    transition: 0.2s;
+}
+
+.navegacao a:hover{
+    background-color: #4a4a4a;
+}
+
+/* Botão */
+.meu-btn{
+    position: fixed;
+    background-color: rgb(60, 80, 58);
+    top: 15px;
+    left: 15px;
+
+    width: 50px;
+    height: 50px;
+
+    z-index: 99999;
+
+    border: none;
+    border-radius: 8px;
+
+    font-size: 24px;
+    cursor: pointer;
+}

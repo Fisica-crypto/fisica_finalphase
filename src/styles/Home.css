@@ -1,87 +1,225 @@
 .corpo{
   display: flex;
   flex-direction: column;
-  padding: 20px;
-  color: #000;
-  background-color: #e4e4e4;
+
+  padding: 25px;
+
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(circle at top, #1e293b 0%, #0f172a 60%);
+
+  color: white;
+
+  font-family: 'Segoe UI', sans-serif;
 }
 
-#container-results{
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
-  margin-top: 20px;
-}
-
+/* TOPO */
 #Request{
-  flex: 1;
   display: flex;
   flex-wrap: wrap;
+
   justify-content: space-around;
   align-items: center;
+
+  gap: 20px;
+
   width: 100%;
-  height: auto;
-}
-#right{ 
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 4% 8% 8% 0%;
-  color: #fff;
-  background-color: #e4e4e4;
-  border: #000 solid 6px;
-  min-width: 900px;
-  height: 60vh;
-  overflow: hidden;
-}
-.results{
-  margin: 8%;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 8px 30px rgba(0,0,0,0.25);
 }
 
-.btn-enviar{
-  margin-top: 30px;
-  width: 120px;
-  height: 50px;
-  border: none;
-  border-radius: 8px;
-  background-color: #4CAF50;
+/* INPUTS */
+.insert{
+  background: rgba(255,255,255,0.08);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
   color: white;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.insert:focus{
+  border-color: #38bdf8;
+
+  box-shadow:
+    0 0 15px rgba(56,189,248,0.5);
+}
+
+/* BOTÃO */
+.btn-enviar{
+  width: 140px;
+  height: 52px;
+
+  border: none;
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #22c55e,
+      #16a34a
+    );
+
+  color: white;
+
+  font-size: 1rem;
+  font-weight: bold;
+
   cursor: pointer;
+
+  transition: 0.3s;
+
+  box-shadow:
+    0 8px 20px rgba(34,197,94,0.35);
 }
 
 .btn-enviar:hover{
-  background-color: #3e8e41;
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(34,197,94,0.5);
 }
-.insert{
-  background-color: #676767;
+
+/* ÁREA PRINCIPAL */
+#container-results{
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 40px;
+
+  margin-top: 35px;
 }
+
+/* CANVAS */
+#right{
+  flex: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  min-width: 900px;
+  height: 65vh;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      #1e293b,
+      #0f172a
+    );
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.45);
+}
+
+/* RESULTADOS */
 #results-box{
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 20px;
-  border: 2px solid #000;
-  min-width: 250px;
+  min-width: 280px;
+
+  padding: 25px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,0.06);
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255,255,255,0.08);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.3);
+
+  transition: 0.3s;
+}
+
+#results-box:hover{
+  transform: translateY(-4px);
 }
 
 #results-box h2{
-  margin-bottom: 10px;
+  margin-bottom: 22px;
+
+  font-size: 1.8rem;
+
+  color: #38bdf8;
+
+  border-left: 5px solid #38bdf8;
+
+  padding-left: 12px;
 }
 
+/* ITENS */
 #results-box p{
-  margin: 5px 0;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px;
+
+  margin: 12px 0;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255,255,255,0.05);
+
+  color: #e2e8f0;
+
+  transition: 0.2s;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  #container-results {
+#results-box p:hover{
+  background:
+    rgba(56,189,248,0.12);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px){
+
+  #container-results{
     flex-direction: column;
   }
 
+  #right{
+    min-width: 100%;
+    height: 50vh;
+  }
 
+  #results-box{
+    width: 100%;
+  }
+
+  #Request{
+    flex-direction: column;
+  }
 }

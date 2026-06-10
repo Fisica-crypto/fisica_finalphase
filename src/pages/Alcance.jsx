@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/alcance.css";
-import { CalAlcance } from "../utils/mov";
+import { calcularAlcance } from "../utils/mov";
 
 export default function Alcance() {
     const [velocidade, setVelocidade] = useState(20);
