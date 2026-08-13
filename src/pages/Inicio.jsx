@@ -21,12 +21,10 @@ function Inicio(){
 
         <section id="teoria">{/* Teoria do Lançamento*/}
 
-            <h2>Teoria por trás do Lançamento Obliquo</h2>
-            <h3>O que é o Lançamento Oblíquo?</h3>
+            <h2>O que é o Lançamento Oblíquo?</h2>
             <p>
             É um movimento que acontece em duas direções simultaneamente. O
-            lançamento oblíquo é um movimento bidimensional (em duas dimensões)
-            onde um objeto é lançado com velocidade inicial formando um ângulo (
+            lançamento oblíquo é um movimento bidimensional onde um objeto é lançado com velocidade inicial formando um ângulo (
             <InlineMath math={"\\theta"} />) entre{" "}
             <InlineMath math={"0^\\circ"} /> e{" "}
             <InlineMath math={"90^\\circ"} /> com a horizontal.
@@ -41,7 +39,7 @@ function Inicio(){
             <h3>Componentes da Velocidade:</h3>
             <p>O vetor velocidade é uma grandeza vetorial que representa a taxa de variação da 
                 posição de um objeto, definindo seu módulo (rapidez), direção e sentido em um dado instante.
-                No Lancamento Oblíquo, um objeto ao ser lançado, o vetor da velocidade inicial 
+                No Lançamento Oblíquo, um objeto ao ser lançado, o vetor da velocidade inicial 
                 <InlineMath math={'(V_0)'}/> se divide em dois eixos perpendiculares.</p>
             <ul>
         <li><strong>Horizontal 
@@ -63,7 +61,6 @@ function Inicio(){
         
         <section id="equacoes">{/* Equações do Lançamento*/}
             <h3>Equações do Lançamento Obliquo:</h3>
-            <p>As equações que regem o movimento de um projétil lançado obliquamente são:</p>
             <ul>
                 <li>
                     <strong>Posição Horizontal (x):</strong>
@@ -102,11 +99,7 @@ function Inicio(){
             </ul>
             </section>
 
-             <section id="simulacao">{/* Simulação do Lançamento*/}
-            <h3>Simulação do Lançamento Obliquo:</h3>
-            <p>Para visualizar o lançamento oblíquo, acesse nosso simulador interativo, onde você pode ajustar a velocidade inicial e o ângulo de lançamento para observar a trajetória do projétil em tempo real.</p>
-            <Link to='/Simulador' className='btn'>Acesse nosso simulador</Link>
-             </section>
+            
         </section>
     </main>
         </div>
