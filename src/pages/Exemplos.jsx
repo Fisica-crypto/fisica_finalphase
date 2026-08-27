@@ -11,43 +11,38 @@ export default function Obliquo() {
 
       <div className="card">
         <p>
-          Este guia explica como utilizar cada funcionalidade do site para calcular
-          e entender o lançamento oblíquo.
+          Este guia explica como utilizar cada funcionalidade do site para sobre o simulador 
+          e entender o conteúdo de lançamento oblíquo.
         </p>
       </div>
 
       <div className="card">
-        <h2>1. Home</h2>
+        <h2>1. Inicio</h2>
         <img src={home} alt="Tela inicial do site" className="imagem-exemplo"/>
 
         <p>
-          A página inicial é a principal do site. Nela, você pode inserir os dados
-          e obter todos os resultados.
+          Contém uma breve explicação, uma introdução do conteúdo de fisíca I, Lançamento Obliqueo. Contém os conceitos e fórmulas.
         </p>
 
+      </div>
+
+      <div className="card">
+        <h2>3. Simulador</h2>
+        <img src={alcance} alt="Tela Alcance" className="imagem-exemplo"/>
+        <p>Parte principal do nosso site, é onde colocamos todos os dados necessários para calcular e realizar uma simulação dos lançamentos.</p>
+        
         <ul>
           <li><strong>Velocidade inicial:</strong> m/s</li>
           <li><strong>Ângulo:</strong> graus</li>
           <li><strong>Gravidade:</strong> 9,8 m/s²</li>
+          <li><strong>Tempo:</strong> Segundos</li>
         </ul>
       </div>
 
       <div className="card">
-        <h2>2. Altura</h2>
-        <img src={altura} alt="Tela Altura" className="imagem-exemplo"/>
-        <p>Calcula a altura máxima do projétil.</p>
-      </div>
-
-      <div className="card">
-        <h2>3. Alcance</h2>
-        <img src={alcance} alt="Tela Alcance" className="imagem-exemplo"/>
-        <p>Mostra a distância horizontal percorrida.</p>
-      </div>
-
-      <div className="card">
-        <h2>4. Tempo</h2>
-        <img src={tempo} alt="Tela Tempo" className="imagem-exemplo"/>
-        <p>Calcula o tempo total de voo.</p>
+        <h2>3. Sobre Nós</h2>
+        <img src={alcance} alt="Nós" className="imagem-exemplo"/>
+        <p>Esta página fornece as informações sobre os partipantes do projeto, da criação desse site.</p>
       </div>
 
       <div className="card">
