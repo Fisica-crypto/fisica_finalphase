@@ -4,14 +4,14 @@ export function grausParaRad(angulo) {
     return angulo * (Math.PI / 180);
 }
 
-// calcula o alcance máximo (fórmula direta, sem tempo)
+// calcula o alcance máximo (sem tempo)
 export function calcularAlcance(velocidade, angulo, gravidade) {
     const ang = grausParaRad(angulo);
     const g = parseFloat(gravidade) || GRAVIDADE_PADRAO; 
     return (velocidade ** 2 * Math.sin(2 * ang)) / g;
 }
 
-// calcular a Altura Máxima (fórmula direta, sem tempo)
+// calcular a Altura Máxima (sem tempo)
 export function calcularAltura(velocidade, angulo, gravidade) {
     const ang = grausParaRad(angulo);
     const g = parseFloat(gravidade) || GRAVIDADE_PADRAO; 
@@ -41,6 +41,3 @@ export function calcularAlturaNoTempo(velocidade, angulo, gravidade, tempo) {
     const h = v0y * tempo - (g / 2) * (tempo ** 2);
     return h; 
 }
-
-// REMOVIDO: calAlcance — era duplicata de calcularAlcanceNoTempo
-// REMOVIDO: calAltura  — era duplicata de calcularAlturaNoTempo

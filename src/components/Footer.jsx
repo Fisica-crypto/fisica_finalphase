@@ -36,7 +36,6 @@ export default function Footer(){
                     <li>Lourenço Silva Aguiar</li>
                     <li>Rihanna Byanca Gomes Lima Farias </li>
                     <li>Victor Gabriel De Sousa Dos Santos</li>
-                    <li>João Manoel de Sousa Alves</li>
                 </ul>
                 </div>
                 <div className="refs">
