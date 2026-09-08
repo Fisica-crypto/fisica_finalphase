@@ -47,3 +47,18 @@
   margin-top: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
+
+.imagens-lado-a-lado {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.imagem-exemplo-grid {
+  width: 32%;
+  min-width: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
