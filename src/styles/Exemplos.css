@@ -1,8 +1,9 @@
 .corpo-exemplos {
-  max-width: 900px;
+  width: 100%;
+  justify-content: center;
   margin: 0 auto;
-  padding: 30px;
   font-family: Arial, sans-serif;
+  padding: 15%;
   color: #1a1a1a;
 }
 
@@ -61,4 +62,27 @@
   min-width: 200px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .corpo-exemplos {
+        padding: 15px; /* Adeus padding de 15% */
+        margin-top: 20px;
+    }
+    .corpo-exemplos h1 {
+        font-size: 1.8rem;
+    }
+    .card {
+        padding: 15px;
+    }
+    .imagens-lado-a-lado {
+        flex-direction: column; /* Coloca as imagens uma embaixo da outra */
+        align-items: center;
+    }
+    .imagem-exemplo-grid {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }

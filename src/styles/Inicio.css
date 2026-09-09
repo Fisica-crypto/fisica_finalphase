@@ -31,7 +31,7 @@
 }
 
 .main{
-    margin-left: 45px;
+    width: 100%;
     padding: 20px;
 }
 /* --- Reset e Base --- */
@@ -129,9 +129,8 @@ nav a:hover {
 
 /* --- Conteúdo Principal (Teoria) --- */
 main {
-    max-width: 1000px;
-    margin: 2rem auto;
-    padding: 0 20px;
+    margin-top: 20%;
+    padding: 0 15%;
 }
 
 section {
@@ -202,13 +201,27 @@ footer p {
 
 /* --- Responsividade --- */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
+    .main { 
+        padding: 10px; /* Tira os 20px */
     }
-    
-    #apresentacao h2 {
-        font-size: 1.8rem;
+    main { 
+        margin-top: 0; 
+        padding: 0; /* Tira os 15% gigantes que espremiam o texto */
+    }
+    #apresentacao { 
+        padding: 30px 15px; 
+    }
+    section { 
+        padding: 15px; /* Tira os 2.5rem gigantes */
+        margin-bottom: 1rem; 
+    }
+    #apresentacao h2 { 
+        font-size: 1.6rem; 
+    }
+    h2, h3 { 
+        font-size: 1.3rem; 
+    }
+    p, li { 
+        font-size: 0.95rem; 
     }
 }

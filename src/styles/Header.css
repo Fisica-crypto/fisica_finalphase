@@ -1,41 +1,45 @@
+/* ==================== CABEÇALHO PRINCIPAL ==================== */
 .header-container {
-    width: 100vw;
-    height: 20vw;
+    width: 100%;
+    display: flex;
     justify-content: center;
-    padding: 25px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    
+    /* AQUI É O SEGREDO: Sem height fixo, sem position absolute! */
+    /* Ele vai crescer automaticamente para caber a logo e o texto */
 }
 
 .header-content {
+    display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
-/* ==================== CENTRO ==================== */
-.header-center{
-    margin: auto;
+/* ==================== CENTRO (LOGO E TÍTULO) ==================== */
+.header-center {
+    display: flex;
     flex-direction: column;
-    display:flex;
     align-items: center;
     justify-content: center;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    margin: 0 auto;
+    
+    /* Nada de transform, left ou absolute aqui! O flexbox já cuida de tudo. */
 }
 
 .header-logo {
-    max-height: 140px;
-    height: 120px;
-    width: 130px;
+    height: 110px; /* Um tamanho bom para o PC */
+    width: auto;
     margin-bottom: 10px;
     border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Dá um destaque bacana na logo */
 }
 
 .header-center h1 {
-    color: black;
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     font-weight: bold;
     margin: 0;
     white-space: nowrap;
@@ -43,36 +47,56 @@
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* ==================== DIREITA ==================== */
-.navbar-box {
-    margin-left: auto;
+/* Pode manter seus blocos de @media aqui embaixo intactos! *//* ==================== CABEÇALHO PRINCIPAL ==================== */
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    z-index: 10;
+    
+    /* AQUI É O SEGREDO: Sem height fixo, sem position absolute! */
+    /* Ele vai crescer automaticamente para caber a logo e o texto */
 }
 
-.navbar-links {
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* ==================== CENTRO (LOGO E TÍTULO) ==================== */
+.header-center {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+    /* Nada de transform, left ou absolute aqui! O flexbox já cuida de tudo. */
 }
 
-.navbar-links a {
-    text-decoration: none;
-    color: black;
+.header-logo {
+    height: 110px; /* Um tamanho bom para o PC */
+    width: auto;
+    margin-bottom: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Dá um destaque bacana na logo */
+}
+
+.header-center h1 {
+    font-size: 2.5rem;
     font-weight: bold;
-    font-size: 1.45rem;
+    margin: 0;
     white-space: nowrap;
-    display: inline-block; /* importante pro transform funcionar */
-    transition: all 0.3s ease;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.navbar-links a:hover {
-    color: var(--secondary-color); /* usa teu padrão */
-    transform: translateY(-3px) scale(1.05);
-}
-
+/* Pode manter seus blocos de @media aqui embaixo intactos! */
 /* RESPONSIVO */
 @media (max-width: 900px) {
     .header-center h1 {
@@ -81,5 +105,30 @@
 
     .navbar-links a {
         font-size: 1.3rem;
+    }
+}
+@media (max-width: 768px) {
+    .header-container {
+        position: relative;
+        height: auto; /* Deixa a caixa crescer para caber o logo e o título */
+        padding: 60px 10px 20px 10px; /* Dá espaço em cima pro botão verde da barra respirar */
+    }
+
+    .header-center {
+        position: relative; /* Tira o absolute! Faz o conteúdo respeitar a caixa */
+        left: 0;
+        transform: none; /* Tira aquele translateX que centralizava forçado */
+    }
+
+    .header-logo {
+        height: 80px; /* Diminui a logo pro celular */
+        width: auto;
+        margin-bottom: 10px;
+    }
+
+    .header-center h1 {
+        font-size: 1.8rem;
+        white-space: normal; /* Se o título for muito longo, permite quebrar pra linha de baixo */
+        line-height: 1.2;
     }
 }

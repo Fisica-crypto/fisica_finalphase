@@ -1,10 +1,14 @@
 .sobre-container {
     background-color: var(--background-light);
     color: var(--text-color);
-    min-height: 100vh;
+    
+    flex: 1; 
+    
     padding: 60px;
+    width: 100%;
+    box-sizing: border-box;
 }
-
+ 
 /* HERO / TOPO */
 .meio {
     display: flex;
@@ -48,4 +52,31 @@
     margin-top: 10px;
     line-height: 1.6;
     color: var(--text-color);
+}
+
+/* =========================================
+   RESPONSIVIDADE (Celulares e Tablets)
+   ========================================= */
+@media (max-width: 768px) {
+    .sobre-container {
+        padding: 15px; /* Respiro básico */
+    }
+    .meio {
+        height: auto; 
+        padding: 30px 0; 
+    }
+    .meio h1 { 
+        font-size: 2rem; 
+    }
+    .content {
+        padding: 15px;
+        width: 100%;
+    }
+    .content h2 { 
+        font-size: 1.2rem; 
+        margin-top: 15px;
+    }
+    .content p, .content li { 
+        font-size: 0.95rem; 
+    }
 }

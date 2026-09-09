@@ -72,6 +72,8 @@ const Animation = forwardRef(function Animation(
  
   function iniciarP5() {
     if (!sketchRef.current) return;
+
+    sketchRef.current.innerHTML = "";
  
     const sketch = (p) => {
       p.setup = () => {
@@ -79,6 +81,12 @@ const Animation = forwardRef(function Animation(
         const h = sketchRef.current?.offsetHeight || 420;
         p.createCanvas(w, h).parent(sketchRef.current);
         p.frameRate(60);
+      };
+
+      p.windowResized = () => {
+        if (sketchRef.current) {
+          p.resizeCanvas(sketchRef.current.offsetWidth, sketchRef.current.offsetHeight);
+        }
       };
  
       p.draw = () => {
@@ -211,7 +219,7 @@ const Animation = forwardRef(function Animation(
       style={{
         background: colors.simulador,
         width: "100%",
-        height: "420px",
+        height: "100%",
         borderRadius: "12px",
         overflow: "hidden",
       }}

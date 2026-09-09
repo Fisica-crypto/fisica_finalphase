@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import {
   calcularAlcance,
   calcularAlcanceNoTempo,
@@ -8,7 +8,7 @@ import {
 } from "../utils/mov";
 import Animation from "../components/Animation";
 import { useTheme } from "../hooks/use-theme";
-
+ 
 import "../styles/Home.css";
 // Cores sincronizadas com Animation.jsx
 const COR_LABELS = [
@@ -40,7 +40,11 @@ export default function Simulador() {
  
   const animationRef = useRef(null);
   const zeroGrav = Number(gravidade) === 0;
- 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);  
+
   function calcular() {
     setErro("");
  

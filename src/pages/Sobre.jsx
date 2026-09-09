@@ -1,7 +1,8 @@
 import React from "react";
-import "../styles/Sobre.css"
 import { useTheme } from "../hooks/use-theme";
 
+import "../styles/Sobre.css"
+ 
 export default function Sobre() {
     const colors = useTheme();
 

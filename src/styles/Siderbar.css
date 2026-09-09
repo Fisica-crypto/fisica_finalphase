@@ -4,7 +4,7 @@
     left: 0;
 
     width: 280px;
-    height: 100vh;
+    height: 100%;
 
     background-color: #343434;
 
@@ -96,4 +96,49 @@
 
     font-size: 24px;
     cursor: pointer;
+}
+
+/* =========================================
+   O Fundo Escuro (Overlay)
+   ========================================= */
+.overlay-barra {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Preto com 60% de transparência */
+    z-index: 999;/* Fica logo abaixo da barra (1000), mas acima do resto do site */
+    backdrop-filter: blur(3px); /* Deixa o site lá atrás embaçado (opcional, fica chique) */
+}
+
+/* Garante que o botão fique acima do overlay também */
+.meu-btn {
+    z-index: 1001; 
+}
+
+
+/* =========================================
+   RESPONSIVIDADE (Celulares)
+   ========================================= */
+@media (max-width: 768px) {
+    
+    .Body {
+        /* No celular, a barra ocupa 75% da tela, não os 280px fixos */
+        width: 75vw; 
+        max-width: 300px;
+    }
+
+    .meu-btn {
+        /* Deixa o botão um pouquinho mais compacto no celular */
+        width: 45px;
+        height: 45px;
+        top: 10px;
+        left: 10px;
+        font-size: 20px;
+    }
+
+    .Top img {
+        max-width: 150px; /* Diminui a imagem no celular pra não ocupar tanto espaço */
+    }
+    
 }
