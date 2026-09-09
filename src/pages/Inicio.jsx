@@ -1,28 +1,31 @@
 import { Link } from 'react-router-dom';
 import { InlineMath, BlockMath } from "react-katex";
-import "katex/dist/katex.min.css";
+import { useTheme } from '../hooks/use-theme';
 
+
+import "katex/dist/katex.min.css";
 import '../styles/Inicio.css';
 
 function Inicio(){
+    const colors = useTheme();
     return (  
         <>
 
 
-        <div className='main'>
+        <div className='main' style={{ background: colors.background, color: colors.text }}>
     <main>
-        <section id = "apresentacao">{/* Aqui é os Boas Vindas para o usuário/Apresentação*/}
-                <h2>Bem-vindo ao lugar onde a curiosidade encontra a ciência.</h2>
+        <section id = "apresentacao" style={{ background: colors.card, color: colors.text }}>{/* Aqui é os Boas Vindas para o usuário/Apresentação*/}
+                <h2 style={{ color: colors.text }}>Bem-vindo ao lugar onde a curiosidade encontra a ciência.</h2>
                 <p>Explore o fascinante mundo do lançamento oblíquo, onde a física e a matemática se unem para revelar os segredos do movimento dos projéteis. 
                     Este simulador interativo é projetado para estudantes, educadores e entusiastas da ciência que desejam compreender melhor os princípios por trás do lançamento oblíquo e suas aplicações práticas.</p>
                 <Link to='/Simulador' className='btn'>Acessar Simulador</Link>
 
         </section>
 
-        <section id="teoria">{/* Teoria do Lançamento*/}
+        <section id="teoria" style={{ background: colors.card, color: colors.text }}>{/* Teoria do Lançamento*/}
 
-            <h2>O que é o Lançamento Oblíquo?</h2>
-            <p>
+            <h2 style={{ color: colors.text }}>O que é o Lançamento Oblíquo?</h2>
+            <p >
             É um movimento que acontece em duas direções simultaneamente. O
             lançamento oblíquo é um movimento bidimensional onde um objeto é lançado com velocidade inicial formando um ângulo (
             <InlineMath math={"\\theta"} />) entre{" "}
@@ -35,8 +38,8 @@ function Inicio(){
                 vertical naturalmente acelerado para baixo.
             — Adaptado de "Diálogos sobre as Duas Novas Ciências", Galileu Galilei (1638).</p>
             
-            <section id="componentes">{/* Componentes da Velocidade*/}
-            <h3>Componentes da Velocidade:</h3>
+            <section id="componentes" style={{ background: colors.cardComponentes, color: colors.text }}>{/* Componentes da Velocidade*/}
+            <h3 style={{ color: colors.text }}>Componentes da Velocidade:</h3>
             <p>O vetor velocidade é uma grandeza vetorial que representa a taxa de variação da 
                 posição de um objeto, definindo seu módulo (rapidez), direção e sentido em um dado instante.
                 No Lançamento Oblíquo, um objeto ao ser lançado, o vetor da velocidade inicial 
@@ -59,8 +62,8 @@ function Inicio(){
     </ul>
         </section>
         
-        <section id="equacoes">{/* Equações do Lançamento*/}
-            <h3>Equações do Lançamento Obliquo:</h3>
+        <section id="equacoes" style={{ background: colors.cardComponentes, color: colors.text }}>{/* Equações do Lançamento*/}
+            <h3 style={{ color: colors.text }}>Equações do Lançamento Obliquo:</h3>
             <ul>
                 <li>
                     <strong>Posição Horizontal (x):</strong>
@@ -89,8 +92,8 @@ function Inicio(){
 
         </section>
 
-         <section id="curiosidades">{/* Curiosidades sobre o Lançamento*/}
-            <h3>Curiosidades sobre o Lançamento Obliquo:</h3>
+         <section id="curiosidades" style={{ background: colors.card, color: colors.text }}>{/* Curiosidades sobre o Lançamento*/}
+            <h3 style={{ color: colors.text }}>Curiosidades sobre o Lançamento Obliquo:</h3>
             <ul>
                 <li><strong>Aplicações Práticas:</strong> O lançamento oblíquo é fundamental em diversas áreas, como esportes (arremesso de dardos, lançamento de foguetes), engenharia (trajetória de projéteis) e até mesmo na exploração espacial.</li>
                 <li><strong>Influência do Ângulo de Lançamento:</strong> O ângulo ideal para alcançar a máxima distância horizontal é de 

@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import "../styles/Home.css";
 import {
   calcularAlcance,
   calcularAlcanceNoTempo,
@@ -8,14 +7,19 @@ import {
   calcularTempo,
 } from "../utils/mov";
 import Animation from "../components/Animation";
- 
+import { useTheme } from "../hooks/use-theme";
+
+import "../styles/Home.css";
 // Cores sincronizadas com Animation.jsx
 const COR_LABELS = [
   "#3b82f6", "#eab308", "#ef4444", "#22c55e",
   "#a855f7", "#f97316", "#14b8a6", "#ec4899",
 ];
  
+
 export default function Simulador() {
+  const colors = useTheme();
+
   const [velocidade, setVelocidade] = useState("");
   const [angulo,     setAngulo]     = useState("");
   const [gravidade,  setGravidade]  = useState(10);
@@ -108,43 +112,46 @@ export default function Simulador() {
   }
  
   return (
-    <div className="corpo">
+    <div className="corpo" style={{ background: colors.background }}>
  
       {/* INPUTS  */}
-      <div id="Request">
-        <div className="input">
-          <p>Velocidade Inicial (m/s)</p>
+      <div id="Request" style={{ background: colors.card }}>
+        <div className="input" style={{ background: colors.card }}>
+          <p style={{ color: colors.text }}>Velocidade Inicial (m/s)</p>
           <input type="number" value={velocidade}
-            onChange={(e) => setVelocidade(e.target.value)} className="insert" />
+            onChange={(e) => setVelocidade(e.target.value)} className="insert" style={{ background: colors.input, color: colors.text }} />
         </div>
-        <div className="input">
-          <p>Ângulo (graus)</p>
+
+        <div className="input" style={{ background: colors.card }}>
+          <p style={{ color: colors.text }}>Ângulo (graus)</p>
           <input type="number" value={angulo}
-            onChange={(e) => setAngulo(e.target.value)} className="insert" />
+            onChange={(e) => setAngulo(e.target.value)}  className="insert" style={{ background: colors.input, color: colors.text }} />
         </div>
-        <div className="input">
-          <p>Aceleração da Gravidade (m/s²)</p>
+
+        <div className="input" style={{ background: colors.card }}>
+          <p style={{ color: colors.text }}>Aceleração da Gravidade (m/s²)</p>
           <input type="number" value={gravidade}
-            onChange={(e) => setGravidade(e.target.value)} className="insert" />
+            onChange={(e) => setGravidade(e.target.value)}  className="insert" style={{ background: colors.input, color: colors.text }}/>
         </div>
-        <div className="input">
-          <p>Tempo (s)</p>
+
+        <div className="input" style={{ background: colors.card }}>
+          <p style={{ color: colors.text }}>Tempo (s)</p>
           <input type="number" value={tempo}
-            onChange={(e) => setTempo(e.target.value)} className="insert" />
+            onChange={(e) => setTempo(e.target.value)}  className="insert" style={{ background: colors.input, color: colors.text }}/>
         </div>
  
-        <div className="btn-group">
-          <button onClick={calcular} className="btn-enviar">Calcular</button>
-          <button onClick={resetar}  className="btn-reset">Reset</button>
+        <div className="btn-group" style={{ background: colors.card }}>
+          <button onClick={calcular} className="btn-enviar" style={{ color: colors.text }}>Calcular</button>
+          <button onClick={resetar}  className="btn-reset" style={{ color: colors.text }}>Reset</button>
         </div>
       </div>
  
       {erro && <p className="erro">{erro}</p>}
  
       {/* ANIMAÇÃO + PAINEL */}
-      <div id="container-results">
+      <div id="container-results" style={{ background: colors.card }}>
  
-        <div id="right">
+        <div id="right" style={{ background: colors.card }}>
           <Animation
             ref={animationRef}
             velocidade={Number(velocidade)}
@@ -156,20 +163,21 @@ export default function Simulador() {
  
         {/* PAINEL LATERAL — só o último resultado */}
         {zeroGrav ? (
-          <div id="results-box">
-            <h2>Resultados</h2>
-            <p>⏱ Tempo: ∞</p>
-            <p>📏 Alcance: ∞</p>
-            <p>📈 Altura Máx: ∞</p>
+          <div id="results-box" style={{ background: colors.card }}>
+            <h2 style={{ color: colors.text }}>Resultados</h2>
+            <p style={{ color: colors.text }}>⏱ Tempo: ∞</p>
+            <p style={{ color: colors.text }}>📏 Alcance: ∞</p>
+            <p style={{ color: colors.text }}>📈 Altura Máx: ∞</p>
           </div>
         ) : ultimo ? (
-          <div id="results-box">
-            <div className="results-header">
-              <h2>Resultados</h2>
+          <div id="results-box" style={{ background: colors.card, color: colors.text }} >
+            <div className="results-header" style={{ background: colors.card }}>
+              <h2 style={{ color: colors.text }}>Resultados</h2>
               {historico.length > 1 && (
                 <button
                   className="btn-historico"
                   onClick={() => setModalAberto(true)}
+                  style={{ color: colors.text }}
                 >
                   Histórico ({historico.length})
                 </button>
@@ -177,19 +185,19 @@ export default function Simulador() {
             </div>
  
             {/* indicador de cor */}
-            <div className="resultado-cor-row">
+            <div className="resultado-cor-row" style={{ background: colors.card, color: colors.text }} >
               <span
                 className="cor-dot"
-                style={{ background: ultimo.cor }}
+                style={{ background: colors.text }}
               />
-              <span className="cor-label">
+              <span className="cor-label" style={{ color: colors.text }}>
                 v₀ = {ultimo.velocidade} m/s · θ = {ultimo.angulo}°
               </span>
             </div>
  
-            <div className="result-row"><span>⏱ Tempo</span>      <strong>{ultimo.tempo} s</strong></div>
-            <div className="result-row"><span>📏 Alcance</span>    <strong>{ultimo.alcance} m</strong></div>
-            <div className="result-row"><span>📈 Altura Máx</span> <strong>{ultimo.altura} m</strong></div>
+            <div className="result-row"><span>⏱ Tempo</span>      <strong style={{ color: colors.text }}>{ultimo.tempo} s</strong></div>
+            <div className="result-row"><span>📏 Alcance</span>    <strong style={{ color: colors.text }}>{ultimo.alcance} m</strong></div>
+            <div className="result-row"><span>📈 Altura Máx</span> <strong style={{ color: colors.text }}>{ultimo.altura} m</strong></div>
           </div>
         ) : null}
       </div>

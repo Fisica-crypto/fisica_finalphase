@@ -1,54 +1,55 @@
 import React from "react";
-
+import { useTheme } from "../hooks/use-theme";
 import { FaEnvelope } from 'react-icons/fa';
 import { FaPhone } from "react-icons/fa";
 
 import '../styles/Footer.css'
 
 export default function Footer(){
+    const colors = useTheme();
     return(
         <>
-        <div className="Footer">
-            <div className="Footer-content">
+        <div className="Footer" style={{ background: colors.card }}>
+            <div className="Footer-content" style={{ background: colors.card }}>
                 
-            <div className="titulo_icons">
-                <h1>Projétil X</h1>
+            <div className="titulo_icons" style={{ background: colors.card }}>
+                <h1 style={{ color: colors.text }}>Projétil X</h1>
             </div>
-            <div className="referencias">
+            <div className="referencias" style={{ background: colors.card }}>
 
-                <div className="refs">
-                <h3>Participantes</h3>
+                <div className="refs" style={{ background: colors.card }}>
+                <h3 style={{ color: colors.text }}>Participantes</h3>
                 <ul>
-                    <li>Alexandre Antunes dos Santos</li>
-                    <li>Arthur Lopes Conceição </li>
-                    <li>Arthur Luigi Costa Barros</li>
-                    <li>Bruno Soares Santos </li>
-                    <li>Deyvid Gabriel Soares Santos</li>
-                    <li>Guilherme Soares Silva</li>
+                    <li style={{ color: colors.text }}>Alexandre Antunes dos Santos</li>
+                    <li style={{ color: colors.text }}>Arthur Lopes Conceição </li>
+                    <li style={{ color: colors.text }}>Arthur Luigi Costa Barros</li>
+                    <li style={{ color: colors.text }}>Bruno Soares Santos </li>
+                    <li style={{ color: colors.text }}>Deyvid Gabriel Soares Santos</li>
+                    <li style={{ color: colors.text }}>Guilherme Soares Silva</li>
                 </ul>
                 </div>
-                <div className="refs">
+                <div className="refs" style={{ background: colors.card }} >
                     <br /> <br />
                 <ul>
-                    <li>Gabriel Gomes Freitas</li>
-                    <li>Isaac Samuel da Silva Guerdes</li>
-                    <li>João Victor Oliveira Silva</li>
-                    <li>Lourenço Silva Aguiar</li>
-                    <li>Rihanna Byanca Gomes Lima Farias </li>
-                    <li>Victor Gabriel De Sousa Dos Santos</li>
+                    <li style={{ color: colors.text }}>Gabriel Gomes Freitas</li>
+                    <li style={{ color: colors.text }}>Isaac Samuel da Silva Guerdes</li>
+                    <li style={{ color: colors.text }}>João Victor Oliveira Silva</li>
+                    <li style={{ color: colors.text }}>Lourenço Silva Aguiar</li>
+                    <li style={{ color: colors.text }}>Rihanna Byanca Gomes Lima Farias </li>
+                    <li style={{ color: colors.text }}>Victor Gabriel De Sousa Dos Santos</li>
                 </ul>
                 </div>
-                <div className="refs">
-                <h3>Coordenador do Projeto</h3>
+                <div className="refs" style={{ background: colors.card }}>
+                <h3 style={{ color: colors.text }}>Coordenador do Projeto</h3>
                 <ul>
-                    <li>Mestre Roberto Kennedy Cardoso</li>
-                    <li>Dr. Francisco Cristiano da Silva Macedo</li>
+                    <li style={{ color: colors.text }}>Mestre Roberto Kennedy Cardoso</li>
+                    <li style={{ color: colors.text }}>Dr. Francisco Cristiano da Silva Macedo</li>
                 </ul>
                 </div>
-                <div className="refs">
-                <h3>Meios de contato</h3>
+                <div className="refs" style={{ background: colors.card }}>
+                <h3 style={{ color: colors.text }}>Meios de contato</h3>
                 <ul>
-                    <li><FaEnvelope/> <a href="mailto:fisicaprojeto98@gmail.com"> Email: fisicaprojeto98@gmail.com </a></li>
+                    <li style={{ color: colors.text }}><FaEnvelope/> <a href="mailto:fisicaprojeto98@gmail.com"> Email: fisicaprojeto98@gmail.com </a></li>
                 </ul>
                 </div>
             </div>

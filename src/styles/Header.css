@@ -29,7 +29,8 @@
     max-height: 140px;
     height: 120px;
     width: 130px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    border-radius: 12px;
 }
 
 .header-center h1 {
@@ -70,17 +71,6 @@
 .navbar-links a:hover {
     color: var(--secondary-color); /* usa teu padrão */
     transform: translateY(-3px) scale(1.05);
-}
-
-/* DARK MODE */
-@media (prefers-color-scheme: dark) {
-    .navbar-links a {
-        color: white;
-    }
-
-    .header-center h1 {
-        color: white;
-    }
 }
 
 /* RESPONSIVO */

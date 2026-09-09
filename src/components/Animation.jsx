@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useImperativeHandle, forwardRef } from "react";
 import p5 from "p5";
+import { useTheme } from "../hooks/use-theme";
  
 const CORES = [
   [59, 130, 246],   // azul
@@ -202,11 +203,13 @@ const Animation = forwardRef(function Animation(
     };
   }, [restart]);
  
+  const colors = useTheme()
+
   return (
     <div
       ref={sketchRef}
       style={{
-        backgroundColor: "#1e222d",
+        background: colors.simulador,
         width: "100%",
         height: "420px",
         borderRadius: "12px",

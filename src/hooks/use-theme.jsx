@@ -3,16 +3,20 @@ import { Colors } from '../constants/theme';
 
 export function useTheme() {
   // Começamos assumindo que o tema é claro
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => {
+    // Só por segurança, verifica se o window existe (boa prática)
+    if (typeof window !== 'undefined') {
+      const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      return isDark ? 'dark' : 'light';
+    }
+    return 'light';
+  });
+
 
   useEffect(() => {
-    // Essa linha pergunta pro navegador: "O usuário prefere modo escuro?"
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     
-    // Define o tema inicial baseado na resposta
-    setTheme(mediaQuery.matches ? 'dark' : 'light');
-
-    // Cria um "espião" para caso o usuário mude o tema com o site aberto
+    // Cria um "espião" para verificar o tema constantemente
     const handleChange = (e) => setTheme(e.matches ? 'dark' : 'light');
     mediaQuery.addEventListener('change', handleChange);
     
@@ -20,6 +24,6 @@ export function useTheme() {
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  // Retorna a paleta de cores pronta, do mesmo jeito que você tinha feito!
+  // Retorna a paleta de cores pronta
   return Colors[theme];
 }
