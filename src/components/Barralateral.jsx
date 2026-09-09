@@ -8,6 +8,8 @@ import '../styles/Siderbar.css'
 function BarraLateral(){
     const [aberta, setAberta] = useState(true)
 
+    const fecharBarra = () => setAberta(false);
+
 
     return ( 
         <>
@@ -39,13 +41,13 @@ function BarraLateral(){
                 <div className="Bottom">
                     <nav>
                         <ul className="navegacao">
-                            <li><Link to="/">Inicio</Link></li>
-                            <li><Link to="/Simulador">Simulador</Link></li>
+                            <li><Link to="/" onClick={fecharBarra}>🏠 Inicio</Link></li>
+                            <li><Link to="/Simulador" onClick={fecharBarra}>🚀 Simulador</Link></li>
                            {/*  <li><Link to="/Altura">Altura</Link></li>
                             <li><Link to="/Alcance">Alcance</Link></li>
                             <li><Link to="/Tempo">Tempo</Link></li> */}
-                            <li><Link to="/Exemplos">Como usar</Link></li>
-                            <li><Link to="/Sobre">Sobre</Link></li>
+                            <li><Link to="/Exemplos" onClick={fecharBarra}>❔Como usar</Link></li>
+                            <li><Link to="/Sobre" onClick={fecharBarra}>📃 Sobre</Link></li>
                         </ul>
                     </nav>
                 </div>
