@@ -1,22 +1,25 @@
 import home from '../assets/Home.png'
-import altura from '../assets/Altura.png'
 import alcance from '../assets/Alcance.png'
-import tempo from '../assets/Tempo.png'
+import { useTheme } from '../hooks/use-theme';
+
 import '../styles/Exemplos.css'
 
 export default function Obliquo() {
-  return (
-    <div className="corpo-exemplos">
-      <h1>Como usar o nosso site</h1>
+  const colors = useTheme();
 
-      <div className="card">
-        <p>
-          Este guia explica como utilizar cada funcionalidade do site para sobre o simulador 
-          e entender o conteúdo de lançamento oblíquo.
+  return (
+    <div className="corpo-exemplos" style={{ Background: colors.background, color: colors.text }}>
+      
+      {/* O título h1, se estiver chumbado de preto no CSS, precisa da cor aqui também */}
+      <h1 style={{ color: colors.text }}>Como usar o nosso site</h1>
+
+      {/* 4. Aplique a cor do CARD em cada div de card */}
+      <div className="card" style={{ cards: colors.card }}>
+        <p style={{ color: colors.text }}>
+          Este guia explica como utilizar cada funcionalidade do site...
         </p>
       </div>
-
-      <div className="card">
+      <div className="card" style={{ cards: colors.background, color: colors.text}} >
         <h2>1. Inicio</h2>
         <img src={home} alt="Tela inicial do site" className="imagem-exemplo"/>
 
@@ -26,7 +29,7 @@ export default function Obliquo() {
 
       </div>
 
-      <div className="card">
+      <div className="card" style={{ cards: colors.background, color: colors.text}} >
         <h2>3. Simulador</h2>
         <img src={alcance} alt="Tela Alcance" className="imagem-exemplo"/>
         <p>Parte principal do nosso site, é onde colocamos todos os dados necessários para calcular e realizar uma simulação dos lançamentos.</p>
@@ -39,13 +42,13 @@ export default function Obliquo() {
         </ul>
       </div>
 
-      <div className="card">
+      <div className="card" style={{ cards: colors.background, color: colors.text}} >
         <h2>3. Sobre Nós</h2>
         <img src={alcance} alt="Nós" className="imagem-exemplo"/>
         <p>Esta página fornece as informações sobre os partipantes do projeto, da criação desse site.</p>
       </div>
 
-      <div className="card">
+      <div className="card" style={{ cards: colors.background, color: colors.text}} >
         <h2>Dicas</h2>
         <ul>
           <li>Use valores positivos</li>
